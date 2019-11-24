@@ -7,20 +7,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class SiteController extends AbstractController
 {
-    /**
-     * @Route("/site", name="site")
-     */
-    public function index()
-    {
-        return $this->render('site/index.html.twig', [
-            'controller_name' => 'SiteController',
-        ]);
-    }
 
-    /**
+	/**
     * @Route("/",name="home")
     */
 
@@ -28,14 +20,24 @@ class SiteController extends AbstractController
     {
     	return $this-> render('site/home.html.twig');
     }
-
+    
+   
     /**
-    * @Route("/add",name="add")
+    * @Route("/admin",name="admin")
+    * @IsGranted("ROLE_ADMIN")
     */
-
-    public function ajout()
+    public function admin()
     {
 
-    	    return $this-> render('site/ajout.html.twig');
+    	    return $this-> render('site/admin.html.twig');
+    }
+
+    /**
+    * @Route("/loged",name="loged")
+    */
+    public function loged()
+    {
+
+    	    return $this-> render('site/loged.html.twig');
     }
 }
