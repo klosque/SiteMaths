@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+
+use App\Entity\Classe;
+use App\Form\ClasseType;
+use App\Repository\CLasseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Forms;
@@ -18,10 +22,14 @@ class SiteController extends AbstractController
 
     public function Home()
     {
-    	return $this-> render('site/home.html.twig');
+
+        $repository = $this->getDoctrine()->getRepository(Classe::class);
+// look for *all* Product objects
+        $classe = $repository->findAll(); 
+        return $this-> render('site/home.html.twig',$classe);
     }
     
-   
+
     /**
     * @Route("/admin",name="admin")
     * @IsGranted("ROLE_ADMIN")
@@ -29,8 +37,8 @@ class SiteController extends AbstractController
     public function admin()
     {
 
-    	    return $this-> render('site/admin.html.twig');
-    }
+       return $this-> render('site/admin.html.twig');
+   }
 
     /**
     * @Route("/loged",name="loged")
@@ -38,6 +46,6 @@ class SiteController extends AbstractController
     public function loged()
     {
 
-    	    return $this-> render('site/loged.html.twig');
-    }
+       return $this-> render('site/loged.html.twig');
+   }
 }

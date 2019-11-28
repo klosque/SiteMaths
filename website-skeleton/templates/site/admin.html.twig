@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-  <h1> La Banque à Exos (admin) </h1>
-{% endblock %}
+
 
 {% block log %}
-    <a class="btn btn-primary" href="post/">Liste des inscrits</a>
-    <a class="btn btn-primary" href="logout">Se déconnecter</a>
+    <a class="btn " style="background-color: #DDA0DD;" href="/user">Liste des inscrits</a>
+    <a class="btn " style="background-color: #DDA0DD;" href="logout">Se déconnecter</a>
+{% endblock %}
+
+{% block title %}
+  <h1> La Banque à Exos (admin) </h1>
 {% endblock %}
 
 {% block body %}
