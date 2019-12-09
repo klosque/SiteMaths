@@ -21,6 +21,12 @@ class Matiere
      */
     private $nom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Classe", inversedBy="matiere")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_classe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +40,18 @@ class Matiere
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getIdClasse(): ?Classe
+    {
+        return $this->id_classe;
+    }
+
+    public function setIdClasse(?Classe $id_classe): self
+    {
+        $this->id_classe = $id_classe;
 
         return $this;
     }

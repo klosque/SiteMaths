@@ -6,6 +6,9 @@ namespace App\Controller;
 use App\Entity\Classe;
 use App\Form\ClasseType;
 use App\Repository\CLasseRepository;
+use App\Entity\Matiere;
+use App\Form\MatiereType;
+use App\Repository\MatiereRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Forms;
@@ -23,10 +26,17 @@ class SiteController extends AbstractController
     public function Home()
     {
 
-        $repository = $this->getDoctrine()->getRepository(Classe::class);
+        $repository_1 = $this->getDoctrine()->getRepository(Classe::class);
 // look for *all* Product objects
-        $classe = $repository->findAll(); 
-        return $this-> render('site/home.html.twig',$classe);
+        $classe = $repository_1->findAll(); 
+        $repository_2 = $this->getDoctrine()->getRepository(Matiere::class);
+// look for *all* Product objects
+        $matiere = $repository_2->findAll();
+        return $this-> render('site/home.html.twig', [
+            'classes' => $classe,
+            'matieres' => $matiere
+        ]);
+      
     }
     
 
