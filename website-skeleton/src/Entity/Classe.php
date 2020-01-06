@@ -24,7 +24,7 @@ class Classe
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\matiere", mappedBy="id_classe")
+     * @ORM\OneToMany(targetEntity="App\Entity\Matiere", mappedBy="id_classe")
      */
     private $matiere;
 
@@ -51,14 +51,14 @@ class Classe
     }
 
     /**
-     * @return Collection|matiere[]
+     * @return Collection|Matiere[]
      */
     public function getMatiere(): Collection
     {
         return $this->matiere;
     }
 
-    public function addMatiere(matiere $matiere): self
+    public function addMatiere(Matiere $matiere): self
     {
         if (!$this->matiere->contains($matiere)) {
             $this->matiere[] = $matiere;
@@ -68,7 +68,7 @@ class Classe
         return $this;
     }
 
-    public function removeMatiere(matiere $matiere): self
+    public function removeMatiere(Matiere $matiere): self
     {
         if ($this->matiere->contains($matiere)) {
             $this->matiere->removeElement($matiere);
