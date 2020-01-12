@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Matiere{% endblock %}
+ {% block navbar %} <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #CAA0F8;">
+        <h1>NOUVELLE MATIERE</h1>
+        </nav> 
+{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Matiere</h1>
+    
 
     {{ include('matiere/_form.html.twig') }}
 

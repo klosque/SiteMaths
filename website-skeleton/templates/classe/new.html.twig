@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Classe{% endblock %}
+
+	 {% block navbar %} <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #CAA0F8;">
+        <h1>NOUVELLE CLASSE</h1>
+        </nav> 
+{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Classe</h1>
+   
 
     {{ include('classe/_form.html.twig') }}
 

@@ -46,8 +46,6 @@ class RegistrationController extends FrontController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+        return $this->render('registration/register.html.twig', ['registrationForm' => $form->createView()]);
     }
 }

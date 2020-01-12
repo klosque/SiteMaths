@@ -13,6 +13,9 @@ use App\Controller\FrontController;
 class SiteController extends FrontController
 {
 
+
+
+
     public function __construct(EntityManagerInterface $em)
     {
         parent::__construct($em);
@@ -23,10 +26,10 @@ class SiteController extends FrontController
     */
     public function Home()
     {
+      
         return $this->render('site/home.html.twig', [
             'menu' => $this->menu
         ]);
-      
     }
     
 
@@ -37,7 +40,9 @@ class SiteController extends FrontController
     public function admin()
     {
 
-       return $this-> render('site/admin.html.twig');
+       return $this-> render('site/admin.html.twig' , [
+            'menu' => $this->menu
+        ]);
    }
 
     /**
@@ -46,6 +51,6 @@ class SiteController extends FrontController
     public function loged()
     {
 
-       return $this-> render('site/loged.html.twig');
+       return $this-> render('site/loged.html.twig' , ['menu' => $this->menu ]);
    }
 }

@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 
-{% block id %}user list{% endblock %}
+ {% block navbar %} <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #CAA0F8;">
+        <h1>USER LIST</h1>
+        </nav> 
+{% endblock %}
+
 
 {% block log %}
     <a class="btn "  style="background-color: #DDA0DDh" href="/admin">Retour au menu </a>
@@ -10,8 +14,8 @@
 
 {% block body %}
 
-
-    <h1>Liste des utilisateurs</h1>
+ 
+    
 
     <table class="table">
         <thead>
